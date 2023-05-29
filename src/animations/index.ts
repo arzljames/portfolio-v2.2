@@ -150,6 +150,23 @@ export const OPACITY_VARIANT = (index?: number) => {
   };
 };
 
+export const OPACITY_2_VARIANT = {
+  default: {
+    opacity: 0,
+    transition: {
+      ease: "easeInOut",
+      duration: 0.2,
+    },
+  },
+  animate: {
+    opacity: 1,
+    transition: {
+      ease: "easeInOut",
+      duration: 0.2,
+    },
+  },
+};
+
 export const PROJECT_MODAL_VARIANT = {
   default: {
     opacity: 0,

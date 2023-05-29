@@ -15,7 +15,7 @@ type IScrollPosition = {
 const Brand = ({ scrollPosition }: IScrollPosition): ReactElement => {
   return (
     <a href="#overview" className="cursor-pointer text-text-main">
-      //{" "}
+      {"// "}
       <motion.span
         variants={NAVBAR_BRAND_VARIANT}
         initial="default"

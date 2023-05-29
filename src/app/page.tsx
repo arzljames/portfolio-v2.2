@@ -36,7 +36,7 @@ const Home = () => {
   const [arrowIcon, setArrowIcon] = useState<string>("Right");
 
   return (
-    <main className="bg-white flex flex-col items-center w-full ">
+    <main className="bg-white flex flex-col items-center w-full overflow-x-hidden">
       {/*<------- hero landing page ------->*/}
       <div
         id="overview"
@@ -61,7 +61,12 @@ const Home = () => {
           </div>
 
           <div className=" md:w-auto select-none mb-6 md:mb-0 relative md:absolute flex items-center justify-center  right-0 top-0 translate-y-[0%] md:top-[50%] md:translate-y-[-50%]">
-            <Image className="w-full select-none" src={bubble} alt="Bubble" />
+            <Image
+              className="w-full select-none"
+              priority
+              src={bubble}
+              alt="Bubble"
+            />
           </div>
           <div className="absolute left-[50%] translate-x-[-50%] bottom-4 flex flex-col items-center ">
             <ScrollIcon />
@@ -92,11 +97,11 @@ const Home = () => {
               <ContentIndicator>02.</ContentIndicator> ABOUT ME
             </h5>
             <p className="text-text-main mb-8 md:mb-4">
-              Hi There! My name is Arzl James Lao, and I'm a software developer.
-              I've always had a passion for technology and a drive to create
-              innovative solutions to complex problems. I specialize in Web
-              Development, and I'm always eager to expand my skill set and take
-              on new challenges.
+              Hi There! My name is Arzl James Lao, and I&#39;m a software
+              developer. I&#39;ve always had a passion for technology and a
+              drive to create innovative solutions to complex problems. I
+              specialize in Web Development, and I&#39;m always eager to expand
+              my skill set and take on new challenges.
             </p>
             <Link
               href={CV_LINK}
@@ -201,13 +206,16 @@ const Home = () => {
               <ContentIndicator>05.</ContentIndicator> CONTACT
             </h5>
             <p className="font-bold text-text-main text-2xl mb-10">
-              Let's keep in touch
+              Let&#39;s keep in touch
             </p>
           </div>
           <div className="w-full flex flex-col md:flex-row items-center justify-between">
             {_.map(CONTACT_DATA, (data) => {
               return (
-                <div className="flex items-center w-full mb-5 md:mb-0">
+                <div
+                  key={data.id}
+                  className="flex items-center w-full mb-5 md:mb-0"
+                >
                   <div className="p-2 rounded-2xl mr-2 ">
                     <data.icon className="text-main-color text-2xl md:text-3xl" />
                   </div>

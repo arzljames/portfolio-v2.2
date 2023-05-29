@@ -24,6 +24,9 @@ import telemed from "../assets/projects/telemedicine/telemed.png";
 import yakapp from "../assets/projects/yakapp/yakapp.png";
 import lms from "../assets/projects/lms/lms.png";
 import { IoLocation, IoMail, IoCall } from "react-icons/io5";
+import { BsFacebook } from "react-icons/bs";
+import { RxLinkedinLogo } from "react-icons/rx";
+import { AiOutlineGithub } from "react-icons/ai";
 
 export const NAV_LINKS = [
   {
@@ -206,21 +209,16 @@ export const PROJECT_DATA = [
     source_code: [
       {
         type: "Frontend",
-        link: "",
+        link: "https://github.com/arzljames/socmed-app",
       },
       {
         type: "Backend",
-        link: "",
-      },
-      {
-        type: "Live Demo",
-        link: "",
-      },
-      {
-        type: "Download",
-        link: "",
+        link: "https://github.com/arzljames/socmed-api-v2",
       },
     ],
+    downloadable_link: "",
+    demo_link:
+      "https://creatve-app.vercel.app/login?demo_username=demo_account&demo_password=arzljameslao123",
     cover_image: creatve,
     images: [creatve, creatve_2, creatve_3, creatve_4, creatve_5, creatve_6],
     live_demo: true,
@@ -235,21 +233,15 @@ export const PROJECT_DATA = [
     source_code: [
       {
         type: "Frontend",
-        link: "",
+        link: "https://github.com/arzljames/zcmc_telemedicine",
       },
       {
         type: "Backend",
-        link: "",
-      },
-      {
-        type: "Live",
-        link: "",
-      },
-      {
-        type: "Download",
-        link: "",
+        link: "https://github.com/arzljames/telemedicine-api",
       },
     ],
+    downloadable_link: "",
+    demo_link: "",
     cover_image: telemed,
     images: [],
     live_demo: false,
@@ -263,22 +255,13 @@ export const PROJECT_DATA = [
     tech_stack: ["REACT NATIVE", "EXPRESS", "NODE", "MONGODB"],
     source_code: [
       {
-        type: "Frontend",
-        link: "",
-      },
-      {
-        type: "Backend",
-        link: "",
-      },
-      {
-        type: "Live",
-        link: "",
-      },
-      {
-        type: "Download",
-        link: "",
+        type: "Mobile App",
+        link: "https://github.com/arzljames/Yakapp-main",
       },
     ],
+    downloadable_link:
+      "https://drive.google.com/file/d/157TqJjQO14AD-IgZjjPWM3Rq_ZMNb5zr/view",
+    demo_link: "",
     cover_image: yakapp,
     images: [],
     live_demo: false,
@@ -293,21 +276,15 @@ export const PROJECT_DATA = [
     source_code: [
       {
         type: "Frontend",
-        link: "",
+        link: "https://github.com/arzljames/client",
       },
       {
         type: "Backend",
-        link: "",
-      },
-      {
-        type: "Live",
-        link: "",
-      },
-      {
-        type: "Download",
-        link: "",
+        link: "https://github.com/arzljames/Fullstack_SE/tree/main/server",
       },
     ],
+    downloadable_link: "",
+    demo_link: "",
     cover_image: lms,
     images: [],
     live_demo: false,
@@ -317,9 +294,6 @@ export const PROJECT_DATA = [
 
 export const CV_LINK =
   "https://drive.google.com/file/d/1EnCbUjFY_HHk-ic4NDK12gcNXHjboT3I/view";
-export const FB_LINK = "https://www.facebook.com/arzl.james";
-export const IN_LINK = "https://www.linkedin.com/in/arzljames";
-export const GH_LINK = "https://github.com/arzljames";
 
 export const CONTACT_DATA = [
   {
@@ -339,5 +313,23 @@ export const CONTACT_DATA = [
     label: "Phone",
     value: "+63 993 632 6927",
     icon: IoCall,
+  },
+];
+
+export const SOCIAL_LINKS = [
+  {
+    id: 1,
+    icon: BsFacebook,
+    link: "https://www.facebook.com/arzl.james",
+  },
+  {
+    id: 2,
+    icon: RxLinkedinLogo,
+    link: "https://www.linkedin.com/in/arzljames",
+  },
+  {
+    id: 3,
+    icon: AiOutlineGithub,
+    link: "https://github.com/arzljames",
   },
 ];

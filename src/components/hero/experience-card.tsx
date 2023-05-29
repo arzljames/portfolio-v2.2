@@ -12,6 +12,8 @@ import Image from "next/image";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import { motion } from "framer-motion";
+import { OPACITY_2_VARIANT } from "@/animations";
 
 type IExperience = {
   id: number;
@@ -34,7 +36,14 @@ const ExperienceCard = ({ activeTab }: { activeTab: string }) => {
         }),
         (data: IExperience) => {
           return (
-            <div className="w-full" key={data.id}>
+            <motion.div
+              variants={OPACITY_2_VARIANT}
+              initial="default"
+              animate="animate"
+              exit="default"
+              className="w-full"
+              key={data.id}
+            >
               <div className="p-4 bg-slate-100 rounded-xl overflow-y-auto w-full mb-2 min-h-[220px]">
                 <h2 className="text-text-main font-bold">
                   {data.company_name}
@@ -168,7 +177,7 @@ const ExperienceCard = ({ activeTab }: { activeTab: string }) => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           );
         }
       )}

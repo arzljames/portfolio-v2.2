@@ -2,11 +2,6 @@
 import Navbar from "@/components/navbar";
 import "./globals.css";
 
-export const metadata = {
-  title: "Arzl James Lao",
-  description: "Digital portfolio",
-};
-
 export default function RootLayout({
   children,
 }: {
@@ -15,6 +10,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <title>Arzl James Lao</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link

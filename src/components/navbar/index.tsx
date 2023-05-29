@@ -23,7 +23,7 @@ const Navbar = (): ReactElement => {
         initial="default"
         animate={scrollPosition > 75 ? "animate" : "default"}
         exit="default"
-        className="z-50 h-20 w-[100vw] bg-transparent fixed top-0 flex items-center  justify-center"
+        className="z-50 h-20 w-full bg-transparent fixed top-0 flex items-center  justify-center"
       >
         <motion.div
           variants={NAVBAR_WRAPPER_VARIANT}
