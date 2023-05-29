@@ -3,6 +3,8 @@ import _ from "lodash";
 import { NAV_LINKS } from "@/conts";
 import Link from "next/link";
 import { RiCloseFill } from "react-icons/ri";
+import { motion } from "framer-motion";
+import { OPACITY_2_VARIANT } from "@/animations";
 
 const Drawer = ({
   setIsDrawerOpen,
@@ -10,7 +12,13 @@ const Drawer = ({
   setIsDrawerOpen: Dispatch<SetStateAction<boolean>>;
 }) => {
   return (
-    <div className="w-[100vw] overflow-hidden h-[100vh] fixed top-0 left-0 z-50 flex flex-col backdrop-blur-sm bg-[#ffffffde] border items-center justify-center">
+    <motion.div
+      variants={OPACITY_2_VARIANT}
+      initial="default"
+      animate="animate"
+      exit="default"
+      className="w-[100vw] overflow-hidden h-[100vh] fixed top-0 left-0 z-50 flex flex-col backdrop-blur-sm bg-[#ffffffde] border items-center justify-center"
+    >
       <div
         onClick={() => {
           setIsDrawerOpen(false);
@@ -33,7 +41,7 @@ const Drawer = ({
           );
         })}
       </ul>
-    </div>
+    </motion.div>
   );
 };
 

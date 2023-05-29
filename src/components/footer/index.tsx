@@ -1,9 +1,9 @@
 import React, { ReactElement } from "react";
 import Image from "next/image";
 import logo from "../../app/favicon.ico";
-import { BsFacebook } from "react-icons/bs";
-import { RxLinkedinLogo } from "react-icons/rx";
-import { AiOutlineGithub } from "react-icons/ai";
+import _ from "lodash";
+import { SOCIAL_LINKS } from "@/conts";
+import Link from "next/link";
 
 const Footer = (): ReactElement => {
   const dateYear: Date = new Date();
@@ -21,7 +21,7 @@ const Footer = (): ReactElement => {
             © {dateYear.getFullYear()} All rights reserved
           </p>
           <ul className="flex text-[#8c90f7] items-center">
-            <li className="transition p-1 mr-2 rounded-full cursor-pointer hover:bg-main-color hover:text-white">
+            {/* <li className="transition p-1 mr-2 rounded-full cursor-pointer hover:bg-main-color hover:text-white">
               <BsFacebook />
             </li>
             <li className="transition p-1 mr-2 rounded-full cursor-pointer hover:bg-main-color hover:text-white">
@@ -29,7 +29,19 @@ const Footer = (): ReactElement => {
             </li>
             <li className="transition p-1 rounded-full cursor-pointer hover:bg-main-color hover:text-white">
               <AiOutlineGithub size={18} />
-            </li>
+            </li> */}
+            {_.map(SOCIAL_LINKS, (link) => {
+              return (
+                <li
+                  key={link.id}
+                  className="transition p-1 mr-2 rounded-full cursor-pointer hover:bg-main-color hover:text-white"
+                >
+                  <Link href={link.link} target="_blank">
+                    <link.icon />
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>

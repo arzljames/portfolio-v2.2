@@ -5,8 +5,9 @@ import { AiFillGithub } from "react-icons/ai";
 import { DROPDOWN_VARIANT } from "@/animations";
 import { AnimatePresence, motion } from "framer-motion";
 import useClickOutside from "@/hooks/useClickOutside";
+import _ from "lodash";
 
-const SourceCode = (): ReactElement => {
+const SourceCode = ({ sc_links }: { sc_links: any[] }): ReactElement => {
   const [showDropdown, setShowDropdown] = useState<boolean>(false);
   const ref = useRef(null);
   useClickOutside(ref, () => setShowDropdown(false));
@@ -31,12 +32,16 @@ const SourceCode = (): ReactElement => {
             exit="default"
             className=" absolute left-0 top-[110%] border bg-white shadow-md py-1 rounded-lg w-full"
           >
-            <p className="hover:border-l-main-color hover:text-main-color border-l-2 border-l-transparent rounded-tl-sm text-text-main text-sm  w-full h-8 flex items-center px-3 font-medium transition hover:bg-slate-100">
-              <AiFillGithub className="mr-2" /> Frontend
-            </p>
-            <p className="hover:border-l-main-color hover:text-main-color border-l-2 border-l-transparent rounded-bl-sm text-text-main text-sm w-full h-8 flex items-center px-3 font-medium transition hover:bg-slate-100">
-              <AiFillGithub className="mr-2" /> Backend
-            </p>
+            {_.map(sc_links, (link) => {
+              return (
+                <p
+                  onClick={() => window.open(link.link)}
+                  className="hover:border-l-main-color hover:text-main-color border-l-2 border-l-transparent rounded-bl-sm text-text-main text-sm w-full h-8 flex items-center px-3 font-medium transition hover:bg-slate-100"
+                >
+                  <AiFillGithub className="mr-2" /> {link.type}
+                </p>
+              );
+            })}
           </motion.div>
         )}
       </AnimatePresence>

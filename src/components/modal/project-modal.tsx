@@ -72,10 +72,11 @@ const ProjectModal = ({
                 </div>
 
                 <div className="flex">
-                  <SourceCode />
+                  <SourceCode sc_links={data.source_code} />
 
                   {data.live_demo && (
                     <button
+                      onClick={() => window.open(data.demo_link)}
                       id="download-btn"
                       className="ml-2 border-main-color border-[1px] text-main-color text-sm font-medium py-2 px-3 rounded-lg flex items-center"
                     >
@@ -85,6 +86,7 @@ const ProjectModal = ({
                   )}
                   {data.downloadable && (
                     <button
+                      onClick={() => window.open(data.downloadable_link)}
                       id="download-btn"
                       className="ml-2 border-main-color border-[1px] text-main-color text-sm font-medium py-2 px-3 rounded-lg flex items-center"
                     >
