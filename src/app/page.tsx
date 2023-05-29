@@ -1,113 +1,240 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import React, { useState } from "react";
+import { Source_Code_Pro } from "next/font/google";
+import Image from "next/image";
+import bubble from "../assets/me-bubble.png";
+import me from "../assets/me.png";
+import ScrollIcon from "@/components/hero/scroll-icon";
+import ContentIndicator from "@/components/hero/content-indicator";
+import { CONTACT_DATA, CV_LINK, EXP_TABS } from "@/conts";
+import _ from "lodash";
+import ExperienceCard from "@/components/hero/experience-card";
+import Footer from "@/components/footer";
+import { TbArrowBarToDown, TbArrowNarrowRight } from "react-icons/tb";
+import { IoGrid, IoList } from "react-icons/io5";
+import ProjectList from "@/components/project/project-list";
+import ProjectGrid from "@/components/project/project-grid";
+import Container from "@/components/container";
+import { AnimatePresence, motion } from "framer-motion";
+import {
+  PROJECT_EVEN_VARIANT,
+  PROJECT_ODD_VARIANT,
+  TAP_ANIMATION,
+} from "@/animations";
+import Link from "next/link";
+
+const sourceCodePro = Source_Code_Pro({
+  subsets: ["latin"],
+  weight: "300",
+  style: "italic",
+});
+
+const Home = () => {
+  const [activeTab, setActiveTab] = useState<string>("Digitalroom");
+  const [projectView, setProjectView] = useState<string>("List");
+  const [arrowIcon, setArrowIcon] = useState<string>("Right");
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Bys{" "}
+    <main className="bg-white flex flex-col items-center w-full overflow-x-hidden">
+      {/*<------- hero landing page ------->*/}
+      <div
+        id="overview"
+        className="min-h-[100vh] w-full h-[100vh] md:flex-row items-center hero-page md:px-20 px-3 bg-hero"
+      >
+        <div className="relative flex md:flex-row flex-col-reverse justify-center md:justify-between md:items-center w-full h-full ">
+          <div className="z-20">
+            <p
+              className={`text-slate-400 text-3xl hidden md:flex relative mb-2 after:content-[''] after:left-[50px] after:w-[150px] after:h-[1px] after:translate-y-[-50%] after:top-[50%] after:absolute after:bg-slate-400 ${sourceCodePro.className}`}
+            >
+              01
+            </p>
+            <h1 className="font-extrabold text-text-main text-3xl md:text-7xl mb-2 md:mb-6">
+              FULL STACK <br />
+              WEB<span className="web-dev"> DEVELOPER</span>
+            </h1>
+            <p className="text-text-main text-base md:text-2xl font-light">
+              A Software Developer enthusiast based
+              <br />
+              in Zamboanga, Philippines.
+            </p>
+          </div>
+
+          <div className=" md:w-auto select-none mb-6 md:mb-0 relative md:absolute flex items-center justify-center  right-0 top-0 translate-y-[0%] md:top-[50%] md:translate-y-[-50%]">
             <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
+              className="w-full select-none"
               priority
+              src={bubble}
+              alt="Bubble"
             />
-          </a>
+          </div>
+          <div className="absolute left-[50%] translate-x-[-50%] bottom-4 flex flex-col items-center ">
+            <ScrollIcon />
+          </div>
         </div>
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
+      {/* <------- end of hero/landing page  -------> */}
+      {/* <------- about me page -------> */}
+      <Container id="about-me">
+        <div className="flex flex-col md:flex-row items-center justify-center min-h-[85vh] w-full ">
+          <motion.div
+            variants={PROJECT_EVEN_VARIANT}
+            initial="default"
+            whileInView="animate"
+            viewport={{ once: true }}
+            className="w-[35%] md:mr-20 min-w-[200px] flex items-center md:mb-0 mb-8 relative"
+          >
+            <Image className="w-full select-none" src={me} alt="Me" />
+          </motion.div>
+          <motion.div
+            variants={PROJECT_ODD_VARIANT}
+            initial="default"
+            whileInView="animate"
+            viewport={{ once: true }}
+            className="flex flex-1 flex-col justify-center md:items-start items-center"
+          >
+            <h5 className="text-main-color font-bold tracking-widest mb-8">
+              <ContentIndicator>02.</ContentIndicator> ABOUT ME
+            </h5>
+            <p className="text-text-main mb-8 md:mb-4">
+              Hi There! My name is Arzl James Lao, and I&#39;m a software
+              developer. I&#39;ve always had a passion for technology and a
+              drive to create innovative solutions to complex problems. I
+              specialize in Web Development, and I&#39;m always eager to expand
+              my skill set and take on new challenges.
+            </p>
+            <Link
+              href={CV_LINK}
+              target="_blank"
+              onMouseEnter={() => setArrowIcon("Down")}
+              onMouseLeave={() => setArrowIcon("Right")}
+              id="download-btn"
+              className="border-main-color justify-center md:w-auto w-full border-[1px] text-main-color text-sm font-medium py-2 px-3 rounded-lg flex items-center"
+            >
+              Download CV{" "}
+              {arrowIcon === "Right" ? (
+                <TbArrowNarrowRight size={16} className="ml-2" />
+              ) : (
+                <TbArrowBarToDown size={16} className="ml-2" />
+              )}
+            </Link>
+          </motion.div>
+        </div>
+      </Container>
+      {/* <------- end of about me page  -------> */}
+      {/*<------- experience page ------->*/}
+      <Container id="experience">
+        <div className="w-full flex items-center justify-center md:justify-start">
+          <h5 className="text-main-color font-bold tracking-widest mb-8">
+            <ContentIndicator>03.</ContentIndicator> EXPERIENCE
+          </h5>
+        </div>
+        <ul className="bg-slate-100 md:h-14 h-12 flex justify-between w-full rounded-xl p-1 mb-4">
+          {_.map(EXP_TABS, (item: { id: number; name: string }) => {
+            return (
+              <li
+                onClick={() => setActiveTab(item.name)}
+                className={`w-[33%] h-full rounded-xl transition  flex items-center justify-center cursor-pointer text-sm font-semibold text-text-sub ${
+                  item.name === activeTab
+                    ? "bg-gradient-to-r from-[#6F74F1] to-[#9B75EE] text-white hover:text-white shadow-sm"
+                    : "hover:bg-[#6f73f11a] hover:text-main-color"
+                } `}
+                key={item.id}
+              >
+                {item.name}
+              </li>
+            );
+          })}
+        </ul>
+        <ExperienceCard activeTab={activeTab} />
+      </Container>
+      {/*<------- end of experience page ------->*/}
+      {/*<------- portfolio page ------->*/}
+      <Container id="portfolio">
+        <div className="flex flex-col items-center justify-center h-auto">
+          <div className="relative w-full flex flex-col items-center justify-center">
+            <h5 className="text-main-color font-bold tracking-widest bg-white z-10 px-8">
+              <ContentIndicator>04.</ContentIndicator> PORTFOLIO
+            </h5>
+            <div className="absolute top-[50%] translate-y-[-50%] border-b-gray-300 border h-[1px] w-full"></div>
+          </div>
+          <p className="text-text-sub text-sm mb-4">
+            Showcasing some of my personal projects
           </p>
-        </a>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+          <div className="flex items-center justify-center mb-8">
+            <div className="p-1 bg-slate-100 rounded-xl flex">
+              <motion.div
+                whileTap={TAP_ANIMATION}
+                onClick={() => setProjectView("List")}
+                className={`p-2 rounded-lg cursor-pointer mr-1 ${
+                  projectView === "List"
+                    ? "bg-white shadow-md text-main-color"
+                    : "text-slate-400"
+                }`}
+              >
+                <IoList />
+              </motion.div>
+              <motion.div
+                whileTap={TAP_ANIMATION}
+                onClick={() => setProjectView("Grid")}
+                className={`p-2 rounded-lg cursor-pointer ${
+                  projectView === "Grid"
+                    ? "bg-white shadow-md text-main-color"
+                    : "text-slate-400"
+                }`}
+              >
+                <IoGrid />
+              </motion.div>
+            </div>
+          </div>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+          <AnimatePresence>
+            {projectView === "List" ? <ProjectList /> : <ProjectGrid />}
+          </AnimatePresence>
+        </div>
+      </Container>
+      {/*<------- end of portfolio page ------->*/}
+      {/*<------- contact page ------->*/}
+      <article
+        id="contact"
+        className="w-full py-10 min-h-[50vh] bg-[#F4F5F7] flex items-center justify-center"
+      >
+        <div className="w-full md:w-[75%] md:px-20 px-3 h-full ">
+          <div className="flex flex-col items-center justify-center md:items-start">
+            <h5 className="text-main-color font-bold tracking-widest mb-2">
+              <ContentIndicator>05.</ContentIndicator> CONTACT
+            </h5>
+            <p className="font-bold text-text-main text-2xl mb-10">
+              Let&#39;s keep in touch
+            </p>
+          </div>
+          <div className="w-full flex flex-col md:flex-row items-center justify-between">
+            {_.map(CONTACT_DATA, (data) => {
+              return (
+                <div
+                  key={data.id}
+                  className="flex items-center w-full mb-5 md:mb-0"
+                >
+                  <div className="p-2 rounded-2xl mr-2 ">
+                    <data.icon className="text-main-color text-2xl md:text-3xl" />
+                  </div>
+                  <div>
+                    <h3 className="text-text-main font-semibold text-sm">
+                      {data.label}
+                    </h3>
+                    <p className="text-text-sub text-sm">{data.value}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </article>
+      {/*<------- end of contact page ------->*/}
+      <Footer />
     </main>
   );
-}
+};
+
+export default Home;
