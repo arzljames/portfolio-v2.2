@@ -1,6 +1,6 @@
 import htmlicon from "../assets/techstacks/html.svg";
 import cssicon from "../assets/techstacks/css.svg";
-import reacticon from "../assets/techstacks/React.svg";
+import reacticon from "../assets/techstacks/react.svg";
 import monogodbicon from "../assets/techstacks/mongodb.svg";
 import nodeicon from "../assets/techstacks/nodejs.svg";
 import socketicon from "../assets/techstacks/socket.svg";
