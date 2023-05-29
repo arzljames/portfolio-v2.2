@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -16,6 +18,49 @@
   }
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+
+.secondary-scroll {
+  overflow-y: scroll;
+}
+
+
+/* width */
+.secondary-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #6f73f100;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #6F74F1;
+  border-radius: 100px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #575bc7;
+}
+
+* { 
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -24,4 +69,52 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+p.vertical-text {
+  writing-mode: vertical-rl;
+}
+
+
+
+.web-dev {
+background: linear-gradient(90.04deg, #797DF1 31.87%, #B494FA 95.77%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+
+
+#scroll-dot {
+  animation: dot 2s ease-in-out infinite alternate;
+}
+
+#download-btn {
+  transition: 0.3s ease-in-out;
+}
+
+#download-btn:hover {
+  box-shadow: inset 400px 0 0 0 #6F74F1;
+  color: #fff;
+  transition: 0.3s ease-in-out;
+}
+
+
+#mobile-links {
+  transition: .3s ease-in-out;
+}
+
+#mobile-links:hover {
+  letter-spacing: 6px;
+  transition: .3s ease-in-out;
+  color: #6F74F1
+}
+
+@keyframes dot {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(10px);
+  }
 }
