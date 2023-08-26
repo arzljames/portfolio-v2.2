@@ -293,7 +293,7 @@ export const PROJECT_DATA = [
 ];
 
 export const CV_LINK =
-  "https://drive.google.com/file/d/1EnCbUjFY_HHk-ic4NDK12gcNXHjboT3I/view";
+  "https://drive.google.com/file/d/171-yPUAn9kYRoz_NmHft_7a2283808_J/view?usp=sharing";
 
 export const CONTACT_DATA = [
   {
@@ -311,7 +311,7 @@ export const CONTACT_DATA = [
   {
     id: 3,
     label: "Phone",
-    value: "+63 993 632 6927",
+    value: "+63 965 839 5530",
     icon: IoCall,
   },
 ];

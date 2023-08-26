@@ -82,6 +82,25 @@ export const SWITCH_VARIANT = {
   },
 };
 
+export const PORJECT_VARIANT = {
+  default: {
+    opacity: 0,
+    y: "10%",
+    transition: {
+      ease: "easeInOut",
+      duration: 0.5,
+    },
+  },
+  animate: {
+    opacity: 1,
+    y: "0%",
+    transition: {
+      ease: "easeInOut",
+      duration: 0.5,
+    },
+  },
+};
+
 export const PROJECT_ODD_VARIANT = {
   default: {
     opacity: 0,
