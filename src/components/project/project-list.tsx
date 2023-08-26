@@ -37,7 +37,7 @@ const ProjectList = (): ReactElement => {
             >
               <Image
                 src={data.cover_image}
-                className="w-full object-cover h-full object-center transition hover:scale-110 ease-in-out duration-300 cursor-pointer"
+                className="w-full object-cover rounded-xl border h-full object-center transition hover:scale-110 ease-in-out duration-300 cursor-pointer"
                 alt={data.name}
               />
             </div>
