@@ -8,7 +8,7 @@ import { RxExternalLink } from "react-icons/rx";
 import { PROJECT_DATA } from "@/conts";
 import { BsDot } from "react-icons/bs";
 import { motion } from "framer-motion";
-import { PROJECT_ODD_VARIANT, PROJECT_EVEN_VARIANT } from "@/animations";
+import { PORJECT_VARIANT } from "@/animations";
 import { TbArrowBarToDown } from "react-icons/tb";
 
 const ProjectList = (): ReactElement => {
@@ -17,25 +17,23 @@ const ProjectList = (): ReactElement => {
       {_.map(PROJECT_DATA, (data, index) => {
         return (
           <motion.div
-            variants={
-              index % 2 === 0 ? PROJECT_ODD_VARIANT : PROJECT_EVEN_VARIANT
-            }
+            variants={PORJECT_VARIANT}
             initial="default"
             whileInView="animate"
             viewport={{ once: true }}
             key={data.id}
-            className={`flex ${
+            className={`flex md:p-6 p-4 shadow-sm md:rounded-2xl rounded-lg border ${
               index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
             } ${
               index + 1 === PROJECT_DATA.length
                 ? "md:mb-0 mb-0"
-                : "md:mb-32 mb-16"
+                : "md:mb-12 mb-6"
             } flex-col items-center w-full `}
           >
             <div
               className={`md:w-[50%] w-full ${
                 index % 2 === 0 ? "md:mr-6" : "md:ml-6"
-              } mb-4 md:mb-0 border overflow-hidden shadow-md rounded-xl flex items-center h-[300px] justify-center object-cover object-center bg-slate-200`}
+              } mb-4 md:mb-0 shadow-md overflow-hidden rounded-xl flex items-center h-[300px] justify-center object-cover object-center bg-slate-200`}
             >
               <Image
                 src={data.cover_image}
