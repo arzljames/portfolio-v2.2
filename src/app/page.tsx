@@ -12,16 +12,10 @@ import _ from "lodash";
 import ExperienceCard from "@/components/hero/experience-card";
 import Footer from "@/components/footer";
 import { TbArrowBarToDown, TbArrowNarrowRight } from "react-icons/tb";
-import { IoGrid, IoList } from "react-icons/io5";
 import ProjectList from "@/components/project/project-list";
-import ProjectGrid from "@/components/project/project-grid";
 import Container from "@/components/container";
 import { AnimatePresence, motion } from "framer-motion";
-import {
-  PROJECT_EVEN_VARIANT,
-  PROJECT_ODD_VARIANT,
-  TAP_ANIMATION,
-} from "@/animations";
+import { PROJECT_EVEN_VARIANT, PROJECT_ODD_VARIANT } from "@/animations";
 import Link from "next/link";
 
 const sourceCodePro = Source_Code_Pro({
@@ -158,39 +152,11 @@ const Home = () => {
             </h5>
             <div className="absolute top-[50%] translate-y-[-50%] border-b-gray-300 border h-[1px] w-full"></div>
           </div>
-          <p className="text-text-sub text-sm mb-4">
+          <p className="text-text-sub text-sm mb-14">
             Showcasing some of my personal projects
           </p>
-
-          <div className="flex items-center justify-center mb-8">
-            <div className="p-1 bg-slate-100 rounded-xl flex">
-              <motion.div
-                whileTap={TAP_ANIMATION}
-                onClick={() => setProjectView("List")}
-                className={`p-2 rounded-lg cursor-pointer mr-1 ${
-                  projectView === "List"
-                    ? "bg-white shadow-md text-main-color"
-                    : "text-slate-400"
-                }`}
-              >
-                <IoList />
-              </motion.div>
-              <motion.div
-                whileTap={TAP_ANIMATION}
-                onClick={() => setProjectView("Grid")}
-                className={`p-2 rounded-lg cursor-pointer ${
-                  projectView === "Grid"
-                    ? "bg-white shadow-md text-main-color"
-                    : "text-slate-400"
-                }`}
-              >
-                <IoGrid />
-              </motion.div>
-            </div>
-          </div>
-
           <AnimatePresence>
-            {projectView === "List" ? <ProjectList /> : <ProjectGrid />}
+            <ProjectList />
           </AnimatePresence>
         </div>
       </Container>
