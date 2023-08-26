@@ -210,7 +210,7 @@ export const PROJECT_DATA = [
     source_code: [
       {
         type: "Frontend",
-        link: "https://github.com/arzljames/socmed-app",
+        link: "https://github.com/arzljames/place-book",
       },
     ],
     downloadable_link: "",
