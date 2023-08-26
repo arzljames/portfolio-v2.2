@@ -22,6 +22,7 @@ import creatve_5 from "../assets/projects/creatve/creatve_5.png";
 import creatve_6 from "../assets/projects/creatve/creatve_6.png";
 import telemed from "../assets/projects/telemedicine/telemed.png";
 import yakapp from "../assets/projects/yakapp/yakapp.png";
+import placebook from "../assets/projects/placebook/placebook.png";
 import lms from "../assets/projects/lms/lms.png";
 import { IoLocation, IoMail, IoCall } from "react-icons/io5";
 import { BsFacebook } from "react-icons/bs";
@@ -202,6 +203,25 @@ export const EXP_DATA = [
 export const PROJECT_DATA = [
   {
     id: 1,
+    name: "PlaceBook",
+    description:
+      "Streamline your booking experience through our intuitive website. Browse, select, and confirm your reservations seamlessly.",
+    tech_stack: ["REACT", "VITE", "MANTINE"],
+    source_code: [
+      {
+        type: "Frontend",
+        link: "https://github.com/arzljames/socmed-app",
+      },
+    ],
+    downloadable_link: "",
+    demo_link: "https://place-book-pi.vercel.app",
+    cover_image: placebook,
+    images: [],
+    live_demo: true,
+    downloadable: false,
+  },
+  {
+    id: 2,
     name: "CreatVe",
     description:
       "A social media platform that connects everyone whenever and wherever you are in the world. Included advance features such as live notifications, live feed (posting, commenting, reacting), infinite scrolling, and etc.",
@@ -225,7 +245,7 @@ export const PROJECT_DATA = [
     downloadable: false,
   },
   {
-    id: 2,
+    id: 3,
     name: "TeleMedicine",
     description:
       "Online web consultation that caters the need of patients during the amidst of COVID19 pandemic.",
@@ -248,7 +268,7 @@ export const PROJECT_DATA = [
     downloadable: false,
   },
   {
-    id: 3,
+    id: 4,
     name: "YakApp",
     description:
       "A yakan mobile translator and learning application.  Yakan is the native language of indigenous Yakan People located at Basilan Island in the Philippines.",
@@ -268,7 +288,7 @@ export const PROJECT_DATA = [
     downloadable: true,
   },
   {
-    id: 4,
+    id: 5,
     name: "Learning Management System",
     description:
       "Online web-based classroom for managing school activities such as quizzes, assignments, and student details.",
