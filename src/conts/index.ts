@@ -242,7 +242,7 @@ export const PROJECT_DATA = [
     ],
     downloadable_link: "",
     demo_link:
-      "https://creatve-app.vercel.app/login?demo_username=demo_account&demo_password=arzljameslao123",
+      "https://creatve-app.vercel.app",
     cover_image: creatve,
     images: [creatve, creatve_2, creatve_3, creatve_4, creatve_5, creatve_6],
     live_demo: true,
