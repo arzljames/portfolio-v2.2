@@ -14,7 +14,7 @@ const Container = ({
   return (
     <article
       id={id}
-      className={`w-full md:px-20 md:w-[75%] px-3 py-20 min-h-[100vh] ${styles}`}
+      className={`relative w-full md:px-20 md:w-[75%] px-3 py-20 min-h-[100vh] ${styles}`}
     >
       {children}
     </article>

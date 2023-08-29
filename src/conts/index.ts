@@ -34,21 +34,25 @@ export const NAV_LINKS = [
     id: 1,
     name: "About Me",
     link: "#about-me",
+    keys: [1, 2],
   },
   {
     id: 2,
     name: "Experience",
     link: "#experience",
+    keys: [3],
   },
   {
     id: 3,
     name: "Portfolio",
     link: "#portfolio",
+    keys: [4, 5],
   },
   {
     id: 4,
     name: "Contact",
     link: "#contact",
+    keys: [6, 7, 8],
   },
 ];
 
@@ -154,7 +158,7 @@ export const EXP_DATA = [
       "Code, test, and debug APIs for production.",
     ],
     location: "Pampanga, Philippines (WFH)",
-    length_of_service: "9 months - present",
+    length_of_service: "current employee",
     tech_stacks: [
       {
         name: "TypeScript",

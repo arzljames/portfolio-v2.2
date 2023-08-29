@@ -110,11 +110,31 @@ background-clip: text;
   color: #6F74F1
 }
 
+
+
+#about-me::after {
+  content: "ABOUT";
+  position: absolute;
+  top: 14%;
+  font-weight: 900;
+  font-size: 14rem;
+  left: 30%;
+  opacity: 6%;
+  z-index: 1;
+}
+
 @keyframes dot {
   from {
     transform: translateY(0);
   }
   to {
     transform: translateY(10px);
+  }
+}
+
+
+@media only screen and (max-width: 768px) {
+  #about-me::after {
+    content: ""
   }
 }
