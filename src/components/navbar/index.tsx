@@ -35,7 +35,7 @@ const Navbar = (): ReactElement => {
           className="flex items-center justify-between md:px-20 px-3"
         >
           <Brand scrollPosition={scrollPosition} />
-          <Navlinks />
+          <Navlinks scrollPosition={scrollPosition} />
           <div
             onClick={() => setIsDrawerOpen(true)}
             className="w-10 h-10 md:hidden hover:bg-[#eaeaec] cursor-pointer transition flex items-center justify-center bg-hero  rounded-full text-text-main"
