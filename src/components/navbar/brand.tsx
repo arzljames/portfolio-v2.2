@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useEffect } from "react";
 import { Source_Code_Pro } from "next/font/google";
 import { motion } from "framer-motion";
 import { NAVBAR_BRAND_VARIANT } from "@/animations";

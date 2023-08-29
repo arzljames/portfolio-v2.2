@@ -26,7 +26,6 @@ const sourceCodePro = Source_Code_Pro({
 
 const Home = () => {
   const [activeTab, setActiveTab] = useState<string>("Digitalroom");
-  const [projectView, setProjectView] = useState<string>("List");
   const [arrowIcon, setArrowIcon] = useState<string>("Right");
 
   return (
@@ -70,13 +69,13 @@ const Home = () => {
       {/* <------- end of hero/landing page  -------> */}
       {/* <------- about me page -------> */}
       <Container id="about-me">
-        <div className="flex flex-col md:flex-row items-center justify-center min-h-[85vh] w-full ">
+        <div className="flex flex-col md:flex-row items-center justify-center min-h-[85vh] w-full">
           <motion.div
             variants={PROJECT_EVEN_VARIANT}
             initial="default"
             whileInView="animate"
             viewport={{ once: true }}
-            className="w-[35%] md:mr-20 min-w-[200px] flex items-center md:mb-0 mb-8 relative"
+            className="w-[35%] md:mr-20 min-w-[200px] flex items-center md:mb-0 mb-8 relative z-20"
           >
             <Image className="w-full select-none" src={me} alt="Me" />
           </motion.div>
